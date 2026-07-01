@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Donate</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #success-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #dff0d8;
+            border: 1px solid #d6e9c6;
+            border-radius: 5px;
+        }
+    </style>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        window.onload = function() {
+            document.querySelector('form').addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                var name = document.querySelector('input[name="name"]').value;
+                var phone_no = document.querySelector('input[name="phone_no"]').value;
+                var email_id = document.querySelector('input[name="email_id"]').value;
+                var donation_amount = document.querySelector('input[name="donation_amount"]').value;
+                var help_type = document.querySelectorAll('input[name="help_type"]:checked').length > 0;
+                var email_regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!email_regex.test(email_id)) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Please enter a valid email address!'
+                    });
+                    return;
+                }
+                if (!name || !phone_no || !email_id || !donation_amount || !help_type) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Please enter form correctly!'
+                    });
+                    return;
+                }
+
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: 'Donated successfully!',
+                    timer: 5000,
+                    showConfirmButton: false
+                }).then(() => {
+                    this.submit();  // Submit the form data to the server
+                });
+            });
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Donate</h1>
+        <a href="{{ url_for('ngo_main') }}" style="margin-bottom: 10px; background-color: #007BFF; color: #fff; padding: 10px; border: none; border-radius: 5px; cursor: pointer; display: inline-block; text-decoration: none;">Return to Main</a>        
+        <form method="POST" action="/donate">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="text" name="phone_no" placeholder="Phone Number" required>
+            <input type="text" name="email_id" placeholder="Email" required>
+            <input type="text" name="donation_amount" placeholder="Donation Amount">
+            <label>Type of Help:</label><br>
+            <input type="checkbox" id="fees" name="help_type" value="Fees">
+            <label for="fees">Fees</label><br>
+            <input type="checkbox" id="books" name="help_type" value="Books">
+            <label for="books">Books</label><br>
+            <input type="checkbox" id="money" name="help_type" value="Money">
+            <label for="money">Money</label><br>
+            <input type="checkbox" id="food" name="help_type" value="Food">
+            <label for="food">Food</label><br>
+            <input type="checkbox" id="uniform" name="help_type" value="Uniform">
+            <label for="uniform">Uniform</label><br>
+            <input type="checkbox" id="other" name="help_type" value="Other">
+            <label for="other">Other</label><br>
+            <button type="submit">Donate Now</button>
+        </form>
+    </div>
+    <div id="success-message">
+        Donation successful! Redirecting to NGO main page in 5 seconds...
+    </div>
+    
+    <!-- <a href="{{ url_for('ngo_main') }}" style="margin-left: 10px;">Return to Main</a> -->
+</body>
+</html>

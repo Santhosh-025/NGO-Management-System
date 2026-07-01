@@ -1,35 +1,28 @@
 # NGO Management System
 
-A web-based NGO Management System developed using Flask and MySQL to streamline NGO operations such as volunteer management, donation tracking, beneficiary management, and event organization.
+![NGO Management System](https://img.shields.io/badge/NGO_Management_System-Streamline_Operations-brightgreen)
+[![GitHub stars](https://img.shields.io/github/stars/sesiii/NGO_Management_system?style=social)](https://github.com/sesiii/NGO_Management_system/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/sesiii/NGO_Management_system?style=social)](https://github.com/sesiii/NGO_Management_system/network/members)
+[![GitHub watchers](https://img.shields.io/github/watchers/sesiii/NGO_Management_system?style=social)](https://github.com/sesiii/NGO_Management_system/watchers)
 
-## Features
+Welcome to the NGO Management System, a Flask web application designed to streamline NGO operations and management.
 
-- Volunteer Registration & Management
-- Donor Information Management
-- Beneficiary Record Management
-- Event Scheduling
-- Secure Login System
-- Database Integration using MySQL
+![NGO Management System Preview](https://path-to-your-preview-image.png)
 
-## Tech Stack
+### Access the app:
 
-- Python
-- Flask
-- MySQL
-- HTML
-- CSS
-- JavaScript
+- [tinyurl.com/sesiii](https://tinyurl.com/sesiii)
+- [bit.ly/haasi](https://bit.ly/haasi)
 
-## Installation
+### Installation:
 
 1. Clone the repository.
-2. Install the required dependencies.
-3. Configure the MySQL database.
-4. Update the database credentials.
-5. Run the Flask application.
+2. Install all the required dependencies from the "installations' file above.
+3. Set up your MySQL account, run the commands in the MySQL terminal from the file "MYSQL setup".
+4. Create four tables in a database named "ngo_management".
+5. Change the route in the Python file to your MySQL database.
+6. That's it! You're ready to run the app.
 
-## Future Improvements
+Alternatively, you can directly access the app through [tinyurl.com/sesiii](https://tinyurl.com/sesiii) or [bit.ly/haasi](https://bit.ly/haasi).
 
-- Payment Gateway Integration
-- Email Notifications
-- Analytics Dashboard
+Streamline your NGO operations today with our user-friendly management system!
